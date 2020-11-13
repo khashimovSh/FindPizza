@@ -1,10 +1,10 @@
-#Telegram Bot Which Helps To Find Restaurants Near
+# Telegram Bot Which Helps To Find Restaurants Near
 
 Bot created with the help of **Spring Framework**. Dependencies are added
 with **Maven**. Places stored in **postgres database**, and in Java class
 logic of locating places near added. 
 
-##Details of woring bot:
+## Details of woring bot:
 
 User can start with the word "Hello" or "Hi" or "start"(lower case or upper case is not important), for which
 bot will reply with his name and surname and asks if user want to eat,
