@@ -12,4 +12,12 @@ in this case user will have keyboard to choose the options, user can
 enter the distance radius in which bot will try to find places.
 Next user should enter his/her location to provide bot with latitude
 and longitude. Regarding to logic, bot will sort places and send to user
-details about the places
+details about the places. Photos for detais:
+
+![first](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/11.jpg)
+![second](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/22.jpg)
+![third](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/33.jpg)
+![fourth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/44.jpg)
+![fifth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/55.jpg)
+![sixth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/66.jpg)
+
