@@ -30,22 +30,7 @@ public class LocationFilter {
         this.degLon = longitude;
     }
 
-    public List<String> placesNear(double radius){
-        LocationsService service = new LocationsService();
-        List<LocationPlace> allPlaces = service.getAllPlaces();
-        List<String> inRadius = new ArrayList<>();
-        for(LocationPlace i : allPlaces){
-            LocationFilter pr = new LocationFilter(i.getLatitude(),i.getLongitude());
-            System.out.println("Userradlat: "+radLat+" UserradLon: " +radLon+" placeradLat:" +
-                    pr.getRadLat()+" placeradLon: "+pr.getRadLon());
-            double distance = Math.acos(Math.sin(radLat) * Math.sin(pr.getRadLat()) +
-                    Math.cos(radLat) * Math.cos(pr.getRadLat()) * Math.cos(radLon - pr.getRadLon())) * 6371;
-            if(distance <= radius){
-                inRadius.add(i.getName()+" "+distance);
-            }
-        }
-        return inRadius;
-    }
+
 
     @Override
     public String toString() {
