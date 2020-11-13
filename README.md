@@ -14,7 +14,7 @@ Next user should enter his/her location to provide bot with latitude
 and longitude. Regarding to logic, bot will sort places and send to user
 details about the places. Photos for detais:
 
-![first](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/11.jpg =250)
+![first](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/11.jpg){width=50%}
 ![second](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/22.jpg)
 ![third](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/33.jpg)
 ![fourth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/44.jpg)
