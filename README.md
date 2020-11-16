@@ -17,7 +17,7 @@ details about the places. Photos for detais:
 ![first](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/11.jpg)
 ![second](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/22.jpg)
 ![third](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/33.jpg)
-![fourth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/44.jpg)
-![fifth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/55.jpg)
-![sixth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/66.jpg)
+![fourth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/44.jpg)
+![fifth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/55.jpg)
+![sixth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/66.jpg)
 
