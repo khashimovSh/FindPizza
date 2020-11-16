@@ -1,4 +1,4 @@
-# Telegram Bot Which Helps To Find Restaurants Near
+# Telegram Bot Which Helps To Find Places Near(now available restaurants)
 
 Bot created with the help of **Spring Framework**. Dependencies are added
 with **Maven**. Places stored in **postgres database**, and in Java class
@@ -14,9 +14,9 @@ Next user should enter his/her location to provide bot with latitude
 and longitude. Regarding to logic, bot will sort places and send to user
 details about the places. Photos for detais:
 
-![first](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/11.jpg)
-![second](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/22.jpg)
-![third](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/33.jpg)
+![first](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/11.jpg)
+![second](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/22.jpg)
+![third](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/33.jpg)
 ![fourth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/44.jpg)
 ![fifth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/55.jpg)
 ![sixth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/tlgrm/66.jpg)
