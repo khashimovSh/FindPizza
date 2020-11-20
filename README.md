@@ -1,5 +1,5 @@
 # Telegram Bot Which Helps To Find Places Near(now available restaurants also after update 20.11.20 available theatres in Warsaw)
-
+# You can test the bot in telegram! find bot with @choyTestBot 
 Bot created with the help of **Spring Framework**. Dependencies are added
 with **Maven**. Places stored in **postgres database**, and in Java class
 logic of locating places near added. 
