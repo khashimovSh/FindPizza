@@ -1,4 +1,4 @@
-# Telegram Bot Which Helps To Find Places Near(now available restaurants)
+# Telegram Bot Which Helps To Find Places Near(now available restaurants also after update 20.11.20 available theatres in Warsaw)
 
 Bot created with the help of **Spring Framework**. Dependencies are added
 with **Maven**. Places stored in **postgres database**, and in Java class
@@ -20,4 +20,7 @@ details about the places. Photos for detais:
 ![fourth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/44.jpg)
 ![fifth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/55.jpg)
 ![sixth](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/66.jpg)
-
+![seventh](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/77.jpg)
+![eight](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/88.jpg)
+![nine](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/99.jpg)
+![ten](https://github.com/khashimovSh/Where_Is_Food_Bot_Telegram/blob/master/screenshots/10.jpg)
