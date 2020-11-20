@@ -183,7 +183,14 @@ public enum Emoji {
     KITCHEN_CITY('\uD83C','\uDFD9'),
     KITCHEN_LAPTOP('\uD83D','\uDCBB'),
     KITCHEN_TIME(null,'\u23F0'),
-    KITCHEN_COFFEE(null,'\u2615');
+    KITCHEN_COFFEE(null,'\u2615'),
+
+    THEATRE_PHONE('\uD83D','\uDCDE'),
+    THEATRE_DISTRICT('\uD83C','\uDFD8'),
+    THEATRE_FACE('\uD83C','\uDFAD'),
+    THEATRE_MENU('\uD83D' ,'\uDCF2'),
+    THEATRE_PAGER('\uD83D','\uDCDF');
+
 
     Character firstChar;
     Character secondChar;

@@ -1,8 +1,10 @@
 package io.shakhzod.whereis;
 
 import io.shakhzod.whereis.dao.PlacesDataAccessService;
+import io.shakhzod.whereis.location.CulturePlace;
 import io.shakhzod.whereis.location.LocationPlace;
 import io.shakhzod.whereis.location.LocationFilter;
+import io.shakhzod.whereis.service.CulturePlaceDataService;
 import io.shakhzod.whereis.service.Emoji;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,6 +35,9 @@ public class WhereisBot extends TelegramLongPollingBot {
     @Autowired
     private PlacesDataAccessService placesDataAccessService;
 
+    private static int restaurant = 0;
+    private static int theatre = 0;
+
     ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
 
     @Override
@@ -50,10 +55,12 @@ public class WhereisBot extends TelegramLongPollingBot {
         ArrayList<KeyboardRow> keyboard = new ArrayList<>();
         KeyboardRow keyboardFirstRow = new KeyboardRow();
         KeyboardRow keyboardSecondRow = new KeyboardRow();
+        KeyboardRow keyboardThirdRow = new KeyboardRow();
 
         replyKeyboardMarkup.setSelective(true);
         replyKeyboardMarkup.setResizeKeyboard(true);
         replyKeyboardMarkup.setOneTimeKeyboard(false);
+
 
         if(textFromUser != null){
             try{
@@ -69,14 +76,17 @@ public class WhereisBot extends TelegramLongPollingBot {
                keyboardSecondRow.clear();
                keyboardFirstRow.add("Yes"+Emoji.KITCHEN_WANT_TO_EAT_FACE);
                keyboardSecondRow.add("No!");
+               keyboardThirdRow.add("Want to go to theatre"+Emoji.THEATRE_FACE);
                keyboard.add(keyboardFirstRow);
                keyboard.add(keyboardSecondRow);
+               keyboard.add(keyboardThirdRow);
                replyKeyboardMarkup.setKeyboard(keyboard);
 
                execute(message);
                }
                if(textFromUser.equals("yes"+Emoji.KITCHEN_WANT_TO_EAT_FACE)||textFromUser.equals("maybe anyway i will go, why not"+Emoji.KITCHEN_FACE_VERY_SMART)
-                  ||textFromUser.equals("now i'm hungry"+Emoji.KITCHEN_FACE_SMART)){
+                  ||textFromUser.equals("now i'm hungry"+Emoji.KITCHEN_FACE_SMART)||textFromUser.equals("want to eat something"+Emoji.KITCHEN_WANT_TO_EAT_FACE)){
+                   restaurant++;
                    keyboard.clear();
                    keyboardFirstRow.clear();
                    keyboardSecondRow.clear();
@@ -121,6 +131,34 @@ public class WhereisBot extends TelegramLongPollingBot {
                    message.setText("I'm waiting from you number, only number"+Emoji.KITCHEN_FACE_ROTATED);
                    execute(message);
                }
+               if(textFromUser.equals("want to go to theatre"+Emoji.THEATRE_FACE)){
+                   theatre--;
+                   keyboard.clear();
+                   keyboardFirstRow.clear();
+                   keyboardSecondRow.clear();
+                   keyboardThirdRow.clear();
+                   keyboardFirstRow.add("5");
+                   keyboardFirstRow.add("10");
+                   keyboardSecondRow.add("Or just text me, in number"+Emoji.SMILING_FACE_WITH_OPEN_MOUTH);
+                   keyboard.add(keyboardFirstRow);
+                   keyboard.add(keyboardSecondRow);
+                   replyKeyboardMarkup.setKeyboard(keyboard);
+                   message.setText("Tell me, what distance is okay"+"\n"+"for you, please enter in km\n" +
+                           Emoji.KITCHEN_SIGN+"Enter just number "+Emoji.KITCHEN_NUMBER+" no other character is allowed!");
+                   execute(message);
+
+                }
+               if(textFromUser.equals("go to main menu"+Emoji.THEATRE_MENU)){
+                   keyboard.clear();
+                   keyboardFirstRow.add("Want to eat something"+Emoji.KITCHEN_WANT_TO_EAT_FACE);
+                   keyboardSecondRow.add("Want to go to theatre"+Emoji.THEATRE_FACE);
+                   keyboard.add(keyboardFirstRow);
+                   keyboard.add(keyboardSecondRow);
+                   replyKeyboardMarkup.setKeyboard(keyboard);
+                   message.setText("You are in main menu"+Emoji.KITCHEN_FACE_SMILE+"\n"+
+                           "please choose options"+Emoji.THEATRE_PAGER);
+                   execute(message);
+               }
 
 
 
@@ -134,8 +172,14 @@ public class WhereisBot extends TelegramLongPollingBot {
             try {
 
                 LocationFilter userLocation = new LocationFilter(location.getLatitude(),location.getLongitude());
-
-
+                System.out.println(theatre);
+                System.out.println(restaurant);
+                if(restaurant>0){
+                    keyboard.clear();
+                    keyboardFirstRow.add("Go to main menu"+Emoji.THEATRE_MENU);
+                    keyboard.add(keyboardFirstRow);
+                    replyKeyboardMarkup.setKeyboard(keyboard);
+                    restaurant = 0;
                 for(LocationPlace i : locationPlaces){
                     LocationFilter placeLoc = new LocationFilter(i.getLatitude(),i.getLongitude());
                     double dist = Math.acos(Math.sin(userLocation.getRadLat()) * Math.sin(placeLoc.getRadLat()) +
@@ -152,6 +196,28 @@ public class WhereisBot extends TelegramLongPollingBot {
                 }
                 message.setText("Bon appétit"+Emoji.KITCHEN_COFFEE);
                 execute(message);
+                }
+                if(theatre<0){
+                    keyboard.clear();
+                    keyboardFirstRow.add("Go to main menu"+Emoji.THEATRE_MENU);
+                    keyboard.add(keyboardFirstRow);
+                    replyKeyboardMarkup.setKeyboard(keyboard);
+                    theatre = 0;
+                    for(CulturePlace i : CulturePlaceDataService.culturePlaces){
+                        LocationFilter placeLoc = new LocationFilter(Double.parseDouble(i.getLatitude()),Double.parseDouble(i.getLongitude()));
+                        double dist = Math.acos(Math.sin(userLocation.getRadLat()) * Math.sin(placeLoc.getRadLat()) +
+                                Math.cos(userLocation.getRadLat()) * Math.cos(placeLoc.getRadLat()) * Math.cos(userLocation.getRadLon() - placeLoc.getRadLon())) * 6371;
+                        double roundOff = Math.round(dist * 100.0) / 100.0;
+                        if(dist <= distance) {
+                            message.setText(Emoji.THEATRE_FACE+i.getName() + "\n" +
+                                    Emoji.THEATRE_DISTRICT+i.getDistrict() + "\n" +
+                                    Emoji.KITCHEN_WALKING_MAN + roundOff + " km away from you!\n" +
+                                    Emoji.KITCHEN_CITY+i.getStreet() + "\n" +
+                                    Emoji.THEATRE_PHONE+i.getTelephone());
+                            execute(message);
+                        }
+                 }
+                }
 
             } catch (TelegramApiException e) {
                 e.printStackTrace();
