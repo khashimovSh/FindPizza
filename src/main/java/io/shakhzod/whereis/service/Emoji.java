@@ -2,9 +2,11 @@ package io.shakhzod.whereis.service;
 
 /**
  * @author Ruben Bermudez
+ * @author Shakhzod Khashimov
  * @version 1.0
  * @brief Enumerate of emojis with unicode chars
  * @date 02 of July of 2015
+ * @date 11 of November of 2020
  */
 public enum Emoji {
     // Emoticones group
@@ -185,6 +187,7 @@ public enum Emoji {
     KITCHEN_TIME(null,'\u23F0'),
     KITCHEN_COFFEE(null,'\u2615'),
 
+    //Theatre
     THEATRE_PHONE('\uD83D','\uDCDE'),
     THEATRE_DISTRICT('\uD83C','\uDFD8'),
     THEATRE_FACE('\uD83C','\uDFAD'),

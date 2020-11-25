@@ -1,19 +1,18 @@
 package io.shakhzod.whereis.service;
 
 import io.shakhzod.whereis.dao.PlacesDataAccessService;
-import io.shakhzod.whereis.location.LocationPlace;
+import io.shakhzod.whereis.location.LocationRestaurants;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class LocationsService {
     private static PlacesDataAccessService placesDataAccessService;
-    private static List<LocationPlace> allPlaces = new ArrayList<>();
+    private static List<LocationRestaurants> allPlaces = new ArrayList<>();
 
-    public static List<LocationPlace> getAllPlaces(){
+    public static List<LocationRestaurants> getAllPlaces(){
         return allPlaces;
     }
 

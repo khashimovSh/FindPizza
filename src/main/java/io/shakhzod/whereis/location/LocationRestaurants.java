@@ -3,7 +3,7 @@ package io.shakhzod.whereis.location;
 
 import java.util.UUID;
 
-public class LocationPlace {
+public class LocationRestaurants {
 
     private UUID uuid;
     private String name;
@@ -13,11 +13,11 @@ public class LocationPlace {
     private String web;
     private String hours;
 
-    public LocationPlace(){
+    public LocationRestaurants(){
 
     }
 
-    public LocationPlace(String name, double latitude, double longitude, String address, String web, String hours) {
+    public LocationRestaurants(String name, double latitude, double longitude, String address, String web, String hours) {
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -26,7 +26,7 @@ public class LocationPlace {
         this.hours=hours;
     }
 
-    public LocationPlace(UUID id, String name, double latitude, double longitude) {
+    public LocationRestaurants(UUID id, String name, double latitude, double longitude) {
         this.uuid = id;
         this.name = name;
         this.longitude = longitude;

@@ -5,7 +5,7 @@ import io.shakhzod.whereis.service.LocationsService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocationFilter {
+public class LocationTransformer {
 
     private double radLat;  // latitude in radians
     private double radLon;  // longitude in radians
@@ -18,12 +18,12 @@ public class LocationFilter {
     private static final double MIN_LON = Math.toRadians(-180d); // -PI
     private static final double MAX_LON = Math.toRadians(180d);  //  PI
 
-    public LocationFilter () {
+    public LocationTransformer() {
     }
 
 
 
-    public LocationFilter(double latitude, double longitude){
+    public LocationTransformer(double latitude, double longitude){
         this.radLat = Math.toRadians(latitude);
         this.radLon = Math.toRadians(longitude);
         this.degLat = latitude;
